@@ -1,0 +1,19 @@
+{
+    "name": "firefox-privacy-stats",
+    "version": "1.0.0",
+    "scripts": {
+      "test": "jest",
+      "test:watch": "jest --watch"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.x.x",
+      "@babel/preset-env": "^7.x.x",
+      "jest": "^27.x.x",
+      "jest-webextension-mock": "^3.x.x"
+    },
+    "jest": {
+      "setupFiles": ["jest-webextension-mock"],
+      "testEnvironment": "jsdom"
+    }
+  }
+  

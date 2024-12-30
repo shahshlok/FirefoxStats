@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Firefox Privacy Stats",
+  "version": "1.0.0",
+  "description": "Privacy-focused statistics dashboard for Firefox",
+  
+  "permissions": [
+    "storage"
+  ],
+  
+  "background": {
+    "scripts": ["src/background/background.js"],
+    "persistent": false
+  },
+  
+  "chrome_url_overrides": {
+    "newtab": "src/dashboard/newtab.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "privacy-stats@example.com",
+      "strict_min_version": "57.0"
+    }
+  }
+}
