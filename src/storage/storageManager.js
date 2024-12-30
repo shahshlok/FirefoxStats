@@ -26,41 +26,35 @@ const DEFAULT_STORAGE = {
 
 
 class StorageManager {
-  constructor() {
-    this.initialized = false; // Flag to check if storage is initialized
-  }
-
-  async init() {
-    if (this.initialized) return;
-
+  static async init() {
     try {
-      // Check if storage exists
-      const data = await browser.storage.local.get(STORAGE_NAMESPACE);
+      const data = await browser.storage.local.get('privacyStats');
       
-      if (!data[STORAGE_NAMESPACE]) {
-        // Initialize storage with default values
-        await this.resetStorage();
+      if (!data.privacyStats) {
+        const defaultData = {
+          privacyStats: {
+            version: 1,
+            stats: {
+              totalBlocked: 0,
+              bandwidthSaved: 0,
+              uniqueDomains: [],
+              lastUpdated: null
+            },
+            settings: {
+              displayMode: 'default',
+              updateInterval: 1000
+            }
+          }
+        };
+        
+        await browser.storage.local.set(defaultData);
       }
-      
-      this.initialized = true;
     } catch (error) {
-      console.error('Storage initialization failed:', error);
-      throw new Error('Storage initialization failed');
+      throw new Error(`Failed to initialize storage: ${error.message}`);
     }
   }
 
-  async resetStorage() {
-    try {
-      await browser.storage.local.set({
-        [STORAGE_NAMESPACE]: DEFAULT_STORAGE
-      });
-    } catch (error) {
-      console.error('Storage reset failed:', error);
-      throw new Error('Storage reset failed');
-    }
-  }
-
-  async getData() {
+  static async getData() {
     try {
       const data = await browser.storage.local.get('privacyStats');
       return data.privacyStats;
@@ -69,6 +63,22 @@ class StorageManager {
       throw new Error('Failed to get data');
     }
   }
+
+  static async setData(newData) {
+    try {
+      const currentData = await this.getData();
+      const updatedData = {
+        privacyStats: {
+          ...currentData,
+          ...newData,
+          lastUpdated: new Date().toISOString()
+        }
+      };
+      await browser.storage.local.set(updatedData);
+    } catch (error) {
+      throw new Error(`Failed to set data: ${error.message}`);
+    }
+  }
 }
 
-export default new StorageManager();
+export default StorageManager;
