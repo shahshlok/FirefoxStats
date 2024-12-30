@@ -61,11 +61,9 @@ class StorageManager {
   }
 
   async getData() {
-    if (!this.initialized) await this.init();
-    
     try {
-      const data = await browser.storage.local.get(STORAGE_NAMESPACE);
-      return data[STORAGE_NAMESPACE];
+      const data = await browser.storage.local.get('privacyStats');
+      return data.privacyStats;
     } catch (error) {
       console.error('Failed to get data:', error);
       throw new Error('Failed to get data');
