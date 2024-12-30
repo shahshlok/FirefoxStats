@@ -23,8 +23,8 @@ A custom Firefox new tab page that displays real-time privacy statistics collect
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/shahshlok/firefox-privacy-stats.git
-cd firefox-privacy-stats
+git clone https://github.com/shahshlok/firefox-stats.git
+cd firefox-stats
 ```
 
 ### **2. Install Dependencies**
@@ -35,7 +35,7 @@ pip install flask flask-cors
 
 ### **3. Project Structure**
 ```plaintext
-firefox-privacy-stats/
+firefox-stats/
 ├── server.py               # Python Flask server
 ├── ublock_stats.json       # JSON file to store stats
 ├── static/
