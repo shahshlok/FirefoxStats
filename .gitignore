@@ -1,3 +1,62 @@
-
-.DS_Store
+# UBlock Stats Data
 ublock_stats.json
+**/ublock_stats.json
+stats/*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.vs/
+*.sublime-workspace
+*.sublime-project
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node (in case you add JavaScript dependencies later)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.env.test
+
+# Distribution / Packaging
+web-ext-artifacts/
+*.xpi
+*.zip
+
+# Logs
+*.log
+logs/
