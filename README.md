@@ -116,18 +116,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## **License**
 This project is licensed under the MIT License.
-
----
-
-Feel free to modify this README to fit your preferences or add specific details about your implementation (e.g., screenshots). Once you're ready, push it to GitHub:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/yourusername/firefox-privacy-stats.git
-git push -u origin main
-```
-
 Let me know if you need help with anything else!
